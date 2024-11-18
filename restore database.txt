@@ -1,0 +1,1 @@
+﻿restore database master from disk='D:\database\master.bak' with replace

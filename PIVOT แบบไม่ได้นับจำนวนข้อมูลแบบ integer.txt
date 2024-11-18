@@ -1,0 +1,7 @@
+select  TYPE_,[RED],[BLUE],[GREEN] from
+(select  t as TYPE_,color from tbl_test)  p
+PIVOT
+(
+	count(color)
+for color in([BLUE],[GREEN],[RED])
+) as pvt

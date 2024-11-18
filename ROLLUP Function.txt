@@ -1,0 +1,12 @@
+
+select 
+
+CASE WHEN (GROUPING(color)=1) THEN 'ALL'
+ELSE 
+	ISNULL(color,'Unknow Color')
+end as Color,
+SUM(LISTPRICE) as Price
+from Production.Product
+GROUP BY color WITH ROLLUP
+
+

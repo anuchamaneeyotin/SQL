@@ -1,0 +1,717 @@
+
+
+SELECT 
+TOP 10
+CO.DOCSTMM,
+RTRIM(CO.SOID) AS SOID,
+RTRIM(CO.POID) AS POID,
+CO.CreateDate,
+RTRIM(ProductID) AS ProductID
+FROM
+CO
+LEFT JOIN ITEMCO ON CO.DOCSTMM = ITEMCO.DOCSTMM
+ WHERE LEFT(CO.DOCSTMM,3) = 'DIY' AND CO.FLAG='I' and ITEMCO.FLAG='I'
+FOR XML RAW ('OrderData'), ROOT ('DIY'), ELEMENTS; -- RAW คือ tag ที่เอาไว้แบ่งชุดข้อมูล
+
+<DIY>
+  <OrderData>
+    <DOCSTMM>DIY12090440</DOCSTMM>
+    <SOID>55-327</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-09-21T00:00:00</CreateDate>
+    <ProductID>HPB60R-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12090440</DOCSTMM>
+    <SOID>55-327</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-09-21T00:00:00</CreateDate>
+    <ProductID>HPB90/SINK-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12090440</DOCSTMM>
+    <SOID>55-327</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-09-21T00:00:00</CreateDate>
+    <ProductID>HPW790-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12090440</DOCSTMM>
+    <SOID>55-327</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-09-21T00:00:00</CreateDate>
+    <ProductID>HPWM760-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100170</DOCSTMM>
+    <SOID>100361149</SOID>
+    <POID></POID>
+    <CreateDate>2012-10-16T00:00:00</CreateDate>
+    <ProductID>HPB90/SINK-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100268</DOCSTMM>
+    <SOID>ตัวโชว์ 55-305</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-10-18T00:00:00</CreateDate>
+    <ProductID>HW B165-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100268</DOCSTMM>
+    <SOID>ตัวโชว์ 55-305</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-10-18T00:00:00</CreateDate>
+    <ProductID>HWB195-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100268</DOCSTMM>
+    <SOID>ตัวโชว์ 55-305</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-10-18T00:00:00</CreateDate>
+    <ProductID>HWB90-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100268</DOCSTMM>
+    <SOID>ตัวโชว์ 55-305</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-10-18T00:00:00</CreateDate>
+    <ProductID>HWMA4/90B-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100268</DOCSTMM>
+    <SOID>ตัวโชว์ 55-305</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-10-18T00:00:00</CreateDate>
+    <ProductID>HWMA4/90B-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100268</DOCSTMM>
+    <SOID>ตัวโชว์ 55-305</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-10-18T00:00:00</CreateDate>
+    <ProductID>HWW545R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100268</DOCSTMM>
+    <SOID>ตัวโชว์ 55-305</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-10-18T00:00:00</CreateDate>
+    <ProductID>HWW560R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100268</DOCSTMM>
+    <SOID>ตัวโชว์ 55-305</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-10-18T00:00:00</CreateDate>
+    <ProductID>HWW590G-C-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100268</DOCSTMM>
+    <SOID>ตัวโชว์ 55-305</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-10-18T00:00:00</CreateDate>
+    <ProductID>HWW745R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100268</DOCSTMM>
+    <SOID>ตัวโชว์ 55-305</SOID>
+    <POID>0</POID>
+    <CreateDate>2012-10-18T00:00:00</CreateDate>
+    <ProductID>HWWM760-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWW590-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HW B165-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWB195-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWB2D90-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWB3D45/A16-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWB3D60/A16-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWB45R/A10Q-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWB90-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWMA4/60B-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWMA4/90B-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWMA4/90B-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWW545GR-C-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWW545R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWW560GR-C-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWW560R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWW590-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWW745R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12100368</DOCSTMM>
+    <SOID>ตัวโชว์</SOID>
+    <POID>55-314</POID>
+    <CreateDate>2012-10-26T00:00:00</CreateDate>
+    <ProductID>HWWM760-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110083</DOCSTMM>
+    <SOID>55-335</SOID>
+    <POID>ตัวโชว์</POID>
+    <CreateDate>2012-11-07T00:00:00</CreateDate>
+    <ProductID>HPW745R-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110090</DOCSTMM>
+    <SOID>ส่งที่โฮมเวิร์คราชพฤกษ์</SOID>
+    <POID>120435519</POID>
+    <CreateDate>2012-11-08T00:00:00</CreateDate>
+    <ProductID>HWB2D90-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110091</DOCSTMM>
+    <SOID>ส่งโฮมเวิร์คราชพฤกษ์</SOID>
+    <POID>120435520</POID>
+    <CreateDate>2012-11-08T00:00:00</CreateDate>
+    <ProductID>HWB3D60/A16-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110092</DOCSTMM>
+    <SOID>ส่ง.โฮมเวิร์คราชพฤกษ์</SOID>
+    <POID>120435521</POID>
+    <CreateDate>2012-11-08T00:00:00</CreateDate>
+    <ProductID>HWB90/SINK-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110150</DOCSTMM>
+    <SOID>ตัวโชว์ HP EXPO</SOID>
+    <POID>55-348</POID>
+    <CreateDate>2012-11-13T00:00:00</CreateDate>
+    <ProductID>HPB3D60/A16-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110150</DOCSTMM>
+    <SOID>ตัวโชว์ HP EXPO</SOID>
+    <POID>55-348</POID>
+    <CreateDate>2012-11-13T00:00:00</CreateDate>
+    <ProductID>HPB45R-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110150</DOCSTMM>
+    <SOID>ตัวโชว์ HP EXPO</SOID>
+    <POID>55-348</POID>
+    <CreateDate>2012-11-13T00:00:00</CreateDate>
+    <ProductID>HPB60R-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110150</DOCSTMM>
+    <SOID>ตัวโชว์ HP EXPO</SOID>
+    <POID>55-348</POID>
+    <CreateDate>2012-11-13T00:00:00</CreateDate>
+    <ProductID>HPMA4/60B-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110150</DOCSTMM>
+    <SOID>ตัวโชว์ HP EXPO</SOID>
+    <POID>55-348</POID>
+    <CreateDate>2012-11-13T00:00:00</CreateDate>
+    <ProductID>HPW560R-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110150</DOCSTMM>
+    <SOID>ตัวโชว์ HP EXPO</SOID>
+    <POID>55-348</POID>
+    <CreateDate>2012-11-13T00:00:00</CreateDate>
+    <ProductID>HPW745R-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110150</DOCSTMM>
+    <SOID>ตัวโชว์ HP EXPO</SOID>
+    <POID>55-348</POID>
+    <CreateDate>2012-11-13T00:00:00</CreateDate>
+    <ProductID>HPWM760-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110151</DOCSTMM>
+    <SOID>กิจกรรมบ้านกลาง</SOID>
+    <POID>55-370</POID>
+    <CreateDate>2012-11-14T00:00:00</CreateDate>
+    <ProductID>HPW590G-C-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110323</DOCSTMM>
+    <SOID>ส่งที่โฮมโปร หางดง</SOID>
+    <POID>4100199106</POID>
+    <CreateDate>2012-11-30T00:00:00</CreateDate>
+    <ProductID>HPB3D60/A16-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110323</DOCSTMM>
+    <SOID>ส่งที่โฮมโปร หางดง</SOID>
+    <POID>4100199106</POID>
+    <CreateDate>2012-11-30T00:00:00</CreateDate>
+    <ProductID>HPW560GR-C-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12110324</DOCSTMM>
+    <SOID>ส่งที่โฮมโปรหางดง</SOID>
+    <POID>4100199107</POID>
+    <CreateDate>2012-11-30T00:00:00</CreateDate>
+    <ProductID>HPMA4/60B-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB2D90/SH/A16-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB2D90-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB2D90-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB3D45/A16-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB3D45/A16-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB3D60/A16-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB45R/A10Q-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB45R-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB45R-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB60R-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB60R-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB90/SINK-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB90/SINK-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB90-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPB90-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPMA4/60B-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPMA4/90B-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPW545R-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPW545R-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPW560GR-C-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPW560R-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPW590G-C-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPW590-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPW745R-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPW745R-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPW790-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPW790-ME08</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY12120256</DOCSTMM>
+    <SOID>ตัว โชว์</SOID>
+    <POID>55-363</POID>
+    <CreateDate>2012-12-20T00:00:00</CreateDate>
+    <ProductID>HPWM760-ME05</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HW B165-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWB195-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWB2D90/SH/A16-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWB3D45/A16-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWB3D60/A16-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWB45R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWB90/SINK-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWW545R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWW560R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWW590-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWW745R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWW790-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWW790-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWWM760-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010317</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม)</SOID>
+    <POID>55-432</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWWM760-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13010318</DOCSTMM>
+    <SOID>ตัวโชว์(มหาสารคาม).</SOID>
+    <POID>55-467</POID>
+    <CreateDate>2013-01-18T00:00:00</CreateDate>
+    <ProductID>HWMA4/90B-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13020187</DOCSTMM>
+    <SOID>ตัวโชว์ EXPO 2013</SOID>
+    <POID>56-009</POID>
+    <CreateDate>2013-02-18T00:00:00</CreateDate>
+    <ProductID>HWB3D45/A16-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13020187</DOCSTMM>
+    <SOID>ตัวโชว์ EXPO 2013</SOID>
+    <POID>56-009</POID>
+    <CreateDate>2013-02-18T00:00:00</CreateDate>
+    <ProductID>HWB3D60/A16-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13020187</DOCSTMM>
+    <SOID>ตัวโชว์ EXPO 2013</SOID>
+    <POID>56-009</POID>
+    <CreateDate>2013-02-18T00:00:00</CreateDate>
+    <ProductID>HWB45R-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13020187</DOCSTMM>
+    <SOID>ตัวโชว์ EXPO 2013</SOID>
+    <POID>56-009</POID>
+    <CreateDate>2013-02-18T00:00:00</CreateDate>
+    <ProductID>HWB60R-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13020187</DOCSTMM>
+    <SOID>ตัวโชว์ EXPO 2013</SOID>
+    <POID>56-009</POID>
+    <CreateDate>2013-02-18T00:00:00</CreateDate>
+    <ProductID>HWB90/SINK-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13020187</DOCSTMM>
+    <SOID>ตัวโชว์ EXPO 2013</SOID>
+    <POID>56-009</POID>
+    <CreateDate>2013-02-18T00:00:00</CreateDate>
+    <ProductID>HWB90-ME09</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13020187</DOCSTMM>
+    <SOID>ตัวโชว์ EXPO 2013</SOID>
+    <POID>56-009</POID>
+    <CreateDate>2013-02-18T00:00:00</CreateDate>
+    <ProductID>HWMA4/60B-ME10</ProductID>
+  </OrderData>
+  <OrderData>
+    <DOCSTMM>DIY13020187</DOCSTMM>
+    <SOID>ตัวโชว์ EXPO 2013</SOID>
+    <POID>56-009</POID>
+    <CreateDate>2013-02-18T00:00:00</CreateDate>
+    <ProductID>HWMA4/90B-ME09</ProductID>
+  </OrderData>
+</DIY>

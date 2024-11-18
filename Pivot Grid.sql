@@ -1,0 +1,1 @@
+select b.OrderQty,b.SalesOrderID,a.OrderDate,b.ProductID,c.Name,c.Color from Sales.SalesOrderHeader a left join Sales.SalesOrderDetail b on a.SalesOrderID = b.SalesOrderID left join production.product c on b.ProductID = c.ProductID

@@ -1,0 +1,8 @@
+IF OBJECT_ID('stmmdb_TEST.dbo.CO','U') is not null
+print 'OK'
+else
+print 'NO'
+
+'U' = 'User Table'
+'P' = 'Stored Procedure'
+'V' = 'View'

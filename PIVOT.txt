@@ -1,0 +1,16 @@
+/*
+ข้อสังเกตุก็คือต้องแปลงค่า OrderDate ซะก่อนแล้วก็ตั้งชื่อเล่นให้กับมัน
+*/
+select SalesOrderID,CustomerID,[1] as Jan,[2] as Feb,[3] as Mar,[4] as Apr,[5] as May, 
+[6] as June,[7] as July,[8] as Aug,[9] as Sep,[10] as Oct,[11] as Nov,[12] as Dec
+from
+(select SalesOrderID,CustomerID,MONTH(OrderDate) as M ,Freight   from Sales.SalesOrderHeader  
+where SalesOrderID between 43674 and 75123) p
+PIVOT
+(
+                    SUM(Freight)
+FOR M  IN
+( [1],[2],[3],[4],[5] ,[6],[7],[8],[9],[10],[11],[12])
+) 
+AS PVT
+order by SalesOrderID,CustomerID

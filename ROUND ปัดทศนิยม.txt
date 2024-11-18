@@ -1,0 +1,1 @@
+select ROUND(100.50,2)

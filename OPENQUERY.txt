@@ -1,0 +1,1 @@
+insert into tbl_user(uid,pwd,usertype) SELECT * FROM OPENQUERY(OLE, 'select * from ole.tbl_user') 
