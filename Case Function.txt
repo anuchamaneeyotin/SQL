@@ -1,0 +1,8 @@
+SELECT ProductID, Name,
+   CASE Class
+      WHEN 'H' THEN ROUND( (ListPrice * .6), 2)
+      WHEN 'L' THEN ROUND( (ListPrice * .7), 2)
+      WHEN 'M' THEN ROUND( (ListPrice * .8), 2)
+      ELSE ROUND( (ListPrice * .9), 2)
+   END AS DiscountPrice
+FROM Production.Product

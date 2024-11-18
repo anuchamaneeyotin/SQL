@@ -1,0 +1,2 @@
+วิธีการ convert วันที่เป็น string
+select CONVERT(NVARCHAR(10),GETDATE(),110)

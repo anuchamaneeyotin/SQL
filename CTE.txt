@@ -1,0 +1,1 @@
+with CTE ( SUP,VEN,addr) as (select  SUPPLIER ,VENDORTYPEID,ADDRESS from tbl_vendor ) SELECT * from CTE

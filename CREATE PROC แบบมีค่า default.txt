@@ -1,0 +1,7 @@
+CREATE PROC sp_test
+
+@uid varchar(50) = 'tungman'
+
+as 
+
+select * from tbl_user where uid=@uid

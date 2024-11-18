@@ -1,0 +1,7 @@
+select * from customers c cross apply
+
+(select * from orders od where od.customerid = c.customerid) as a cross apply
+
+(select * from [order details]  o where o.orderid = a.orderid) as b cross apply
+
+(select * from products p where p.productid = b.productid) as p 

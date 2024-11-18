@@ -1,0 +1,1 @@
+convert(smalldatetime,'value date',103)

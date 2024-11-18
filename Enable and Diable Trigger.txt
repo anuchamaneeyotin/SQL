@@ -1,0 +1,3 @@
+﻿disable trigger U_ITEMCO ON dbo.ITEMCO;
+
+enable trigger U_ITEMCO ON dbo.ITEMCO;

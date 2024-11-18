@@ -1,0 +1,15 @@
+DECLARE @F VARCHAR(1);
+
+SET @F = 'I';
+
+with x as 
+(
+	select * from CO WHERE Flag=@F and LEFT(DOCSTMM,3) IN ('DIY','COM')
+) , x1 as 
+(
+select top 70 * from x
+) , x2 as 
+(
+	select top 50 * from x
+	)
+select * from x1 union all select * from x2

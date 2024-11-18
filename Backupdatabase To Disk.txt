@@ -1,0 +1,2 @@
+﻿BACKUP DATABASE Master TO DISK = 'D:\BackupDatabase\Master.bak' 
+WITH INIT,CHECKSUM

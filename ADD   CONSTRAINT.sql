@@ -1,0 +1,3 @@
+alter table tbl_mc
+ ADD   CONSTRAINT  MC FOREIGN KEY (MC)
+REFERENCES tbl_MC2(MC)

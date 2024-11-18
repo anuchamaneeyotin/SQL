@@ -1,0 +1,6 @@
+Backup database Project To DISK ='Y:\Project.bak'
+
+Backup database Project To Backup_Project
+WITH 
+FORMAT,
+COMPRESSION

@@ -1,0 +1,70 @@
+USE AdventureWorks;
+GO
+DECLARE @SearchWord varchar(30)
+SET @SearchWord ='performance'
+SELECT Description 
+FROM Production.ProductDescription 
+WHERE CONTAINS(Description, @SearchWord);
+
+
+USE AdventureWorks;
+GO
+SELECT Name, ListPrice
+FROM Production.Product
+WHERE ListPrice = 80.99
+   AND CONTAINS(Name, 'Mountain');
+GO
+
+USE AdventureWorks;
+GO
+SELECT Name
+FROM Production.Product
+WHERE CONTAINS(Name, ' "Mountain" OR "Road" ')
+GO
+
+USE AdventureWorks;
+GO
+SELECT Name
+FROM Production.Product
+WHERE CONTAINS(Name, '"chain*" OR "full*"');
+GO
+
+USE AdventureWorks;
+GO
+SELECT Description
+FROM Production.ProductDescription
+WHERE CONTAINS(Description, 'bike NEAR performance');
+GO
+
+USE AdventureWorks;
+GO
+SELECT Description
+FROM Production.ProductDescription
+WHERE CONTAINS(Description, ' FORMSOF (INFLECTIONAL, ride) ');
+GO
+
+
+USE AdventureWorks;
+GO
+SELECT Description
+FROM Production.ProductDescription
+WHERE CONTAINS(Description, 'ISABOUT (performance weight (.8), 
+comfortable weight (.4), smooth weight (.2) )' );
+GO
+
+USE AdventureWorks;
+GO
+DECLARE @SearchWord nvarchar(30)
+SET @SearchWord = N'Performance'
+SELECT Description 
+FROM Production.ProductDescription 
+WHERE CONTAINS(Description, @SearchWord);
+GO
+
+USE AdventureWorks;
+GO
+SELECT Description
+FROM Production.ProductDescription
+WHERE ProductDescriptionID <> 5 AND
+   CONTAINS(Description, ' Aluminum AND spindle');
+GO

@@ -1,0 +1,1 @@
+bcp "SELECT * FROM databasename.schema.tablename" queryout  folder -Susername -Ppassword -c

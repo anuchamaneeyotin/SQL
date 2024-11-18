@@ -1,0 +1,3 @@
+select supplier,COALESCE(reason,'##') as r  from tbl_vendor order by r
+
+แทนที่ค่า NULL เป้นค่าที่กำหนดไว้

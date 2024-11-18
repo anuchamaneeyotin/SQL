@@ -1,0 +1,3 @@
+Setup /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=InstanceName 
+/SQLSYSADMINACCOUNTS=accounts /[ SAPWD= StrongPassword ] 
+/SQLCOLLATION=CollationName

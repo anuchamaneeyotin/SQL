@@ -1,0 +1,7 @@
+select  distinct h.nno,(select ESCODE + ' ' + ESNMEF + ' ' + ESNMEL + '(' + ESNMOF + ' ' + ESNMOL + ')'  from HR11SDAT where HR11SDAT.ESCODE = h.sNEmpCode) as emp,h.sNlevel,(select ESCODE + ' ' + ESNMEF + ' ' + ESNMEL + '(' + ESNMOF + ' ' + ESNMOL + ')' from HR11SDAT where HR11SDAT.ESCODE = h.sOEmpCode) as empname,h.sOEmpCode,h.sOlevel,h.slastupdate as LastUpdate,(select ESCODE + ' ' + ESNMEF + ' ' + ESNMEL + '(' + ESNMOF + ' ' + ESNMOL + ')' from HR11SDAT where  HR11SDAT.ESCODE = h.sUpdateBy) as updateby,
+(select RESDES   from HR00DEPT  where RECODE  IN(select  TOP 1 EDDEPT from HR11DDAT where EDCODE=h.soEmpCode)) as OldDEp,
+(select RESDES   from HR00DEPT  where RECODE  IN(select  TOP 1 EDDEPT from HR11DDAT where EDCODE=h.snEmpCode)) as NewDEp
+  from CT_Maintenancemanager_history as h 
+--where h.sLastUpdate between convert(nvarchar(10),@startdate,120) + ' 00:00' and convert(nvarchar(10),@enddate,120) + ' 23:59'
+
+order by h.nno

@@ -1,0 +1,4 @@
+use purchase
+go
+
+select * from tbl_item where itemgroupID=15 order by itemgroupID COMPUTE sum(price) by itemgroupID
