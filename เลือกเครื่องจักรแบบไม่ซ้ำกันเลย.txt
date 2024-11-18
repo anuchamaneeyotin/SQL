@@ -1,0 +1,1 @@
+ Dim mc = dt.AsEnumerable.Select(Function(p) p.Field(Of String)("mcno")).Distinct

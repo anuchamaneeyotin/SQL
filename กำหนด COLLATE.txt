@@ -1,0 +1,3 @@
+SELECT * 
+FROM TestTab 
+WHERE GreekCol = LatinCol COLLATE greek_ci_as;

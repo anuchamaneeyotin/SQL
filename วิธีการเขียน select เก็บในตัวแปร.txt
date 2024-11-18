@@ -1,0 +1,6 @@
+DECLARE @sql nvarchar(max),@user nvarchar(50),@dep nvarchar(50)
+
+set @user = 'payorm'
+select @dep = Dep from Master_User where UserName=@user
+
+print @dep

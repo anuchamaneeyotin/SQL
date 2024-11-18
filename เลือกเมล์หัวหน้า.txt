@@ -1,0 +1,2 @@
+
+select ESHEMAIL from HR11SDAT where  ESCODE=(select sEmpCode From CT_MaintenanceManager where  nGroup_ID in(select nGroup_ID from CT_Maintenance where sEmpCode='00158'))

@@ -1,0 +1,10 @@
+select SUPPLIER,
+case 
+when vendortypeID= 1 then '∫√‘…—∑' 
+when vendortypeID=2 then 'À®°'
+else 
+		'√È“π'
+end as vendortype
+,address,phone,fax,credit,contact,position
+,(select itemgroupname from tbl_itemgroup where itemgroupID= tbl_vendor.itemgroupID) as itemgroup,reason
+ from tbl_vendor order by SUPPLIER

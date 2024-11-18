@@ -1,0 +1,13 @@
+USE AdventureWorks;
+GO
+UPDATE Sales.SalesPerson
+SET SalesYTD = SalesYTD + SubTotal
+FROM Sales.SalesPerson AS sp
+JOIN Sales.SalesOrderHeader AS so
+    ON sp.SalesPersonID = so.SalesPersonID
+    AND so.OrderDate = (SELECT MAX(OrderDate)
+                        FROM Sales.SalesOrderHeader 
+                        WHERE SalesPersonID = 
+                              sp.SalesPersonID);
+GO
+

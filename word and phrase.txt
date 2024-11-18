@@ -1,0 +1,5 @@
+word 
+Is a string of characters without spaces or punctuation. 
+
+phrase 
+Is one or more words with spaces between each word.

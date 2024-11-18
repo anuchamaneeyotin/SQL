@@ -1,0 +1,29 @@
+ข้อควรจำถ้าเป็นค่าที่อยู่ด้านในใช้ ' ' คร่อมค่าได้แต่ต้องปิดหัวท้ายด้วย '' = single coute 2 ตัว 
+
+Dim d$ = ""
+
+                Try
+                        For i% = 0 To bgvDoc.DataRowCount - 1
+                                If d = "" Then
+                                        d = "'" & bgvDoc.GetRowCellValue(i, "docid") & "'"
+                                Else
+                                        d &= ",'" & bgvDoc.GetRowCellValue(i, "docid") & "'"
+                                End If
+                        Next
+                        d = "''" & d & "''"
+                        Dim cm As New SqlCommand("sp_summaryreturnorder2", con)
+                        With cm
+                                .CommandType = CommandType.StoredProcedure
+                                .Parameters.Clear()
+                                .Parameters.AddWithValue("@docid", d)
+                        End With
+                        Dim drx As SqlDataReader = cm.ExecuteReader
+                        If drx.HasRows Then
+                                MessageBox.Show("OK")
+                        Else
+                                MessageBox.Show(d)
+                        End If
+                        drx.Close()
+                Catch ex As System.Data.SqlClient.SqlException
+                        MessageBox.Show(ex.Message & " " & ex.LineNumber & " " & ex.Procedure & Chr(13) & d)
+                End Try

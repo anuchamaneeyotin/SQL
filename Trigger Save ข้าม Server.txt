@@ -1,0 +1,27 @@
+﻿USE [dbwins_stmm]
+GO
+/****** Object:  Trigger [dbo].[I_EMGoodUnit]    Script Date: 12/12/2012 14:37:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER TRIGGER [dbo].[I_EMGoodUnit] on [dbo].[EMGoodUnit]
+for INSERT
+
+as
+
+begin
+
+
+
+DECLARE @newid varchar(100),@newcode varchar(100),@newname varchar(255)
+
+
+select @newid = GoodUnitID,@newcode = GoodUnitCode,@newname = GoodUnitName from inserted
+
+SET XACT_ABORT ON
+-- insert into stmmdb_TEST erp.Master_Unit
+insert   OPENQUERY(STMMDB_TEST,'SELECT UnitID,UnitCode,UnitName from erp.Master_Unit') Values(@newid,@newcode,@newname);
+
+end

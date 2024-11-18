@@ -1,0 +1,20 @@
+
+ALTER TRIGGER [dbo].[I_CO] on [dbo].[CO]
+
+FOR DELETE
+
+AS
+
+DECLARE @DOC VARCHAR(50);
+
+SELECT @DOC = DOCSTMM FROM deleted
+
+DECLARE @PrefixDoc varchar(10) 
+
+set @PrefixDoc = LEFT(@DOC,3);
+
+if(@PrefixDoc in ('DIY','COM'))
+BEGIN
+	RAISERROR ('ห้ามลบข้อมูล Order DIY หรือ Compact เด็ดขาด', 17 ,1 ) 
+	ROLLBACK TRANSACTION
+END

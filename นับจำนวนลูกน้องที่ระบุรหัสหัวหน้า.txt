@@ -1,0 +1,9 @@
+SELECT  Count(ESCODE) as ToTal
+              FROM   HR11SDAT   
+              INNER JOIN  HR11DDAT ON HR11SDAT.COCODE =  
+           HR11DDAT.COCODE AND HR11SDAT.ESCODE = HR11DDAT.EDCODE   
+             LEFT OUTER JOIN CT_PHONE ON ESCODE =  SEMPCODE 
+             WHERE   (HR11SDAT.COCODE = 'TTT') AND (HR11DDAT.EDACT = 'C')  
+             And ESCODE  in (Select sEmpCode from CT_maintenance  
+             Where nGroup_id in (select nGroup_id from CT_maintenanceManager 
+            Where sEmpCode = '55555'))

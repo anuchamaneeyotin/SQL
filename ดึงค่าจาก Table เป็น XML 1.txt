@@ -1,0 +1,7 @@
+select ProductID as "@ProductID",
+Name,
+ProductNumber,
+Color,
+Size
+from production.product
+for XML PATH('product'),ROOT('Data')

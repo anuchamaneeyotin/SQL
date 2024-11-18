@@ -1,0 +1,6 @@
+select (select * from production.product FOR XML AUTO,TYPE).query(
+'<doc>{
+for $c in /production.product
+return
+	<product name="{data($c/@Name)}"/>
+}</doc>')

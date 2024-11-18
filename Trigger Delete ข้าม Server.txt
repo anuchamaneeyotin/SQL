@@ -1,0 +1,26 @@
+﻿USE [dbwins_stmm]
+GO
+/****** Object:  Trigger [dbo].[D_EMGoodUnit]    Script Date: 12/12/2012 14:38:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER TRIGGER [dbo].[D_EMGoodUnit] on [dbo].[EMGoodUnit]
+for DELETE
+
+as
+
+begin
+
+
+
+DECLARE @UnitID int
+
+
+select @UnitID = GoodUnitID from deleted
+
+SET XACT_ABORT ON
+-- insert into stmmdb_TEST erp.Master_Unit
+DELETE   OPENQUERY(STMMDB_TEST,'SELECT UnitID,UnitCode,UnitName from erp.Master_Unit') WHERE UnitID=@UnitID
+
+end
