@@ -1,0 +1,61 @@
+SELECT
+X.ROWNUMBER,
+X.Code,
+b1.GoodName1,
+x.Quantity,
+c.Price,
+TotalPrice = x.Quantity * c.Price
+FROM 
+(
+SELECT 
+[ROWNUMBER],
+CASE WHEN Value1 <> 'No Value' THEN 
+	--SUBSTRING(VALUE1,1,CHARINDEX('^',Value1)) 
+	left(VALUE1,CHARINDEX('^',Value1)-1)
+else
+	'No Code'
+end AS Code,
+Quantity,
+--CHARINDEX('^',Value1),
+case when VALUE1 <> 'No Value' THEN
+	RIGHT(VALUE1,5)
+ELSE
+	'No Value'
+end as Price
+FROM 
+(
+select	
+		ROW_NUMBER() OVER (ORDER BY X.ORDERNUMBER) as [ROWNUMBER],
+		x.CutRiteMaterialCode + ' ' + COALESCE(x1.Sizing,'') as Code,
+		--x1.CutRiteMaterialCode as Code2,
+		x.Quantity,
+		--0 as Price,
+		--0 as TotalPrice,
+		--x1.Width,
+		--x1.Length,
+		--x.PrepareWidth,
+		--x.PrepareLength,
+		dbo.fnCostBoard(x.CutRiteMaterialCode,x.PrepareLength,x.PrepareWidth,x.Quantity) as Value1
+from (
+-- ชุดที่ 2 ก่อน Z
+select  
+		a.OrderNumber,
+		a.ProductID,
+		a.PartID,
+        CutRiteMaterialCode,
+        a.Quantity*isnull(b.Quantity,1) as Quantity
+from (
+    select 
+        t1.* 		
+from pd.tmp_order t1  inner join pd.tmp_Part t2 
+on(t1.OrderNumber=t2.OrderNumber and t1.ProductID=t2.ProductID and t1.PartID=t2.PartID and t1.ComputerName=t2.ComputerName)
+where t2.TYP=3 ) a 
+left hash join pd.tmp_Part b  on (a.OrderNumber=b.OrderNumber and b.ComputerName=a.ComputerName and b.TYP=0)
+where a.ComputerName=@ComputerName ) z 
+left join pd.PartList x  on (z.OrderNumber=x.OrderNumber and z.ProductID=x.ProductID and z.PartID=x.PartID )
+LEFT JOIN [LIVING].[LibraryDevelop].[dbo].[vwCutRiteMaterialCode] x1 on x1.CutRiteMaterialCode = z.CutRiteMaterialCode
+) Z  
+) X
+left  join WINSPEED.dbwins_stmm.dbo.EMGOOD b1 on X.Code = RIGHT(b1.GoodMarketName,len(x.Code))
+left  join WINSPEED.dbwins_stmm.dbo.VW_LastPrice c on RIGHT(b1.GoodMarketName,len(x.Code)) = c.GoodCode
+OPTION (TABLE HINT(x, INDEX (PK_PartList)))

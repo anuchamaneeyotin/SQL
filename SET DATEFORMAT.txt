@@ -1,0 +1,4 @@
+﻿SET DATEFORMAT dmy;
+GO
+DECLARE @datevar datetime2 = '16/12/2012';
+SELECT @datevar;

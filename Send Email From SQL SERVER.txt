@@ -1,0 +1,6 @@
+EXEC msdb.dbo.sp_send_dbmail
+    @profile_name = 'MailAdmin',
+    @recipients = 'tungmanit19@gmail.com',
+    @query = 'SELECT * from stmmdb_test.dbo.vw_Orderonline  where createdate = CONVERT(VARCHAR(10),GETDATE(),110) and Finishjob=0 order by DOCSTMM desc' ,
+    @subject = 'Result Query',
+    @attach_query_result_as_file = 1 ;

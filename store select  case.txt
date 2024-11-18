@@ -1,0 +1,8 @@
+BEGIN
+declare @MYCOLOR varchar(128)
+set @MYCOLOR = ‘Green’
+SELECT CASE @MYCOLOR
+WHEN ‘Green’ then ‘Go’
+WHEN ‘Yellow’ then ‘Caution’
+ELSE ‘Stop!’
+end as My_Command

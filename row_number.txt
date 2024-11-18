@@ -1,0 +1,1 @@
+select ROW_NUMBER() OVER (order by BarcodeID asc) as #,* from tbl_configfabric

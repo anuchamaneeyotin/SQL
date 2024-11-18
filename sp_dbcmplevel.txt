@@ -1,0 +1,1 @@
+EXEC sp_dbcmptlevel 'TSDB_MAIN',90

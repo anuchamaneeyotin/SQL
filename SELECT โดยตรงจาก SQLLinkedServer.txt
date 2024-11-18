@@ -1,0 +1,1 @@
+﻿SELECT * FROM STMM.stmmdb_test.dbo.CO where LEFT(DOCSTMM,3)='DIY'

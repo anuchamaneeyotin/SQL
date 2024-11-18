@@ -1,0 +1,4 @@
+DECLARE @t Table
+(
+	n varchar(5)
+);

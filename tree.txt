@@ -1,0 +1,29 @@
+select * from (
+Select case when sEmpIndex = escode then '' 
+Else 
+sEmpIndex 
+end as sE,
+sEmpIndex,
+EsCode,
+sName from
+(
+SELECT DISTINCT  ESCODE as sEmpIndex, ESCODE+' '+ESNMEF+' '+ESNMEL as sName,HR11SDAT.*                    
+FROM   HR11SDAT  
+INNER JOIN  HR11DDAT ON HR11SDAT.COCODE = 
+HR11DDAT.COCODE AND HR11SDAT.ESCODE = HR11DDAT.EDCODE   
+WHERE   (HR11SDAT.COCODE = 'TTT') AND (HR11DDAT.EDACT = 'C')
+Union
+SELECT DISTINCT 
+(select sEmpCode from CT_maintenanceManager 
+				 Where nGroup_id =
+( Select nGroup_id from CT_maintenance 
+Where sEmpCode = HR11SDAT.ESCODE) ) as sEmpIndex,
+ESCODE+' '+ESNMEF+' '+ESNMEL as sName,HR11SDAT.*                      
+				FROM   HR11SDAT   
+				INNER JOIN  HR11DDAT ON HR11SDAT.COCODE =  
+				HR11DDAT.COCODE AND HR11SDAT.ESCODE = HR11DDAT.EDCODE   
+				WHERE   (HR11SDAT.COCODE = 'TTT') AND (HR11DDAT.EDACT = 'C')  
+				 And ESCODE  in (Select sEmpCode from CT_maintenance )
+) gr
+) g
+order by sEmpIndex,sE,EsCode

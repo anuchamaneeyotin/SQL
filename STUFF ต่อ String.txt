@@ -1,0 +1,16 @@
+SELECT 
+CO.DOCSTMM,
+Item = STUFF(
+(
+	SELECT ', ' + RTRIM(b.ItemCode)  + ' : ' + CAST(CAST(a.Amount AS INT) AS VARCHAR(3)) 
+	FROM ITEMCO A
+	LEFT JOIN MASTER.ITEM b on a.CabinetNA = B.ArticleName 
+	where DOCSTMM = CO.DOCSTMM AND Productid IS NOT NULL 
+	and b.ItemType = 'DIY' and b.ParentID is null
+	AND B.ACTIVE = 1
+	order by b.ItemCode 
+	FOR XML PATH('')
+),1,1,'')
+,Qty = (SELECT SUM(AMOUNT) FROM ITEMCO WHERE DOCSTMM = CO.DOCSTMM and Flag='I')
+FROM CO
+WHERE LEFT(CO.DOCSTMM,3) ='DIY' AND CO.FLAG='I'

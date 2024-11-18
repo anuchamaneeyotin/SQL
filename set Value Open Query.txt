@@ -1,0 +1,10 @@
+as 
+
+declare @m as int
+
+
+set @m=(select M from openquery(TSDYESERVER,'SELECT Max(Capacity) as M from Master_DyeMachine where MCGroup=''Dye'''))
+
+
+ข้อสำคัญอย่าลืมตั้งชื่อให้กับ column
+print @m
