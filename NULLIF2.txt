@@ -1,0 +1,3 @@
+select supplier,NULLIF(vendortypeid,1) as r  from tbl_vendor order by r
+
+เปลี่ยนค่าในฟิลด์ที่กำหนดให้เป็นค่า NULL

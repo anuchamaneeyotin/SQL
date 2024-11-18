@@ -1,0 +1,7 @@
+select case when GROUPING(UserType)=1 then 'All'
+else
+ISNULL(UserType,'A')
+end as UserType,
+COUNT(uid) as TotalUser
+from tbl_user
+group by UserType with rollup

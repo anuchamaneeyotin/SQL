@@ -1,0 +1,3 @@
+SELECT IDENT_CURRENT('CO') -- get current identity of table
+
+SELECT IDENT_INCR('CO') -- หาค่า Increment of table

@@ -1,0 +1,1 @@
+select Color,Count(productid) from production.product HASH GROUP BY color 

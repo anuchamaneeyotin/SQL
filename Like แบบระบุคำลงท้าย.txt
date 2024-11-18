@@ -1,0 +1,8 @@
+USE AdventureWorks;
+GO
+SELECT FirstName, LastName
+FROM Person.Contact
+WHERE FirstName LIKE '_an'
+ORDER BY FirstName;
+
+ค้นหาคำที่ลงท้ายด้วย an

@@ -1,0 +1,48 @@
+
+CREATE FUNCTION fnCostBoard
+(
+	@Code VARCHAR(100)
+)
+
+RETURNS varchar(100)
+
+AS
+BEGIN
+	-- Declare the return variable here
+	DECLARE @Value VARCHAR(100),@Count INT
+
+	--SELECT CutRiteMaterialCode,COUNT(CutRiteMaterialCode) as Count FROM [LibraryDevelop].[dbo].[vwCutRiteMaterialCode]Group by CutRiteMaterialCode
+
+	SELECT @Count = COUNT(CutRiteMaterialCode) FROM [LibraryDevelop].[dbo].[vwCutRiteMaterialCode] where CutRiteMaterialCode = @Code
+
+	DECLARE Code_Cursor CURSOR FOR SELECT CutRiteMaterialCode,Sizing,[Length],Width FROM [LibraryDevelop].[dbo].[vwCutRiteMaterialCode] where CutRiteMaterialCode = @Code
+
+	DECLARE @BOARD VARCHAR(100),@Size VARCHAR(50),@WIDTH INT,@HEIGHT INT
+
+	OPEN Code_Cursor
+
+	FETCH NEXT FROM Code_Cursor INTO @BOARD,@Size,@WIDTH,@HEIGHT
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+
+
+
+      FETCH NEXT FROM Code_Cursor INTO @BOARD,@Size,@WIDTH,@HEIGHT
+
+	END
+
+		CLOSE Code_Cursor
+		DEALLOCATE Code_Cursor
+
+
+
+	-- Add the T-SQL statements to compute the return value here
+	--SELECT <@ResultVar, sysname, @Result> = <@Param1, sysname, @p1>
+
+	-- Return the result of the function
+	RETURN @Value
+
+END
+GO
+

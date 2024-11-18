@@ -1,0 +1,5 @@
+select schoolname from tbl_school as a left outer join tbl_order as b  on a.schoolname  = b.customername
+
+tbl_school ตารางที่ต้องการหาค่าซึ่งไม่มีค่าในอีกตาราง
+
+tbl_order ตารางที่เป็นเงื่อนไข

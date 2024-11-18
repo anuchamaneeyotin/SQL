@@ -1,0 +1,1 @@
+LEFT JOIN (SELECT Name FROM MO.ColumnMaster  WHERE Category = 'Category 3') I ON (CASE WHEN Fix_Filler <> 0 THEN 'Fix(Filler)' END ) = SUBSTRING(i.Name,4,LEN(i.name) - 3)

@@ -1,0 +1,1 @@
+EXECUTE dbo.Proc_Test_Defaults @p2 = 'A' WITH RECOMPILE;

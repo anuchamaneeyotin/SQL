@@ -1,0 +1,1 @@
+SELECT * FROM master..sysdatabases where name not in ('master','tempdb','model','msdb')

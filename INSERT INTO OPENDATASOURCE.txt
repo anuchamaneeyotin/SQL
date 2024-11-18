@@ -1,0 +1,10 @@
+BEGIN TRAN
+
+
+insert INTO 
+OPENDATASOURCE('MiCROSOFT.ACE.OLEDB.12.0','Data Source=C:\KDMax\kitdat\StarmarkPrice.mdb;')...[CabinetFittingConceptQty] 
+(ModelNo,FittingType,Qty) SELECT  ModelNo,FittingType,Value from OPENDATASOURCE('SQLNCLI','Data Source=192.168.1.6;database=Library;uid=IMOSADMIN;PWD=imos').Library.dbo.vw_CabinetFittingConceptQty WHERE Development = 1
+
+
+
+ROLLBACK

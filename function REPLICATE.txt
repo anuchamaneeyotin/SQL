@@ -1,0 +1,5 @@
+-- REPLICATE = 0 คือข้อมูลที่ต้องการทำซ้ำ ,parameter ตัวที่ 2 คือครั้งในการทำซ้ำ
+
+declare @data
+set @data = REPLICATE('0',8 - DATALENGTH(100))
+@data = '00000100'

@@ -1,0 +1,1 @@
+select itemgroupID,supplier,sum(price) as totalprice ,grouping(itemgroupID) as G,grouping(supplier) as SUP from tbl_item group by itemgroupID,supplier with rollup

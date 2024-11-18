@@ -1,0 +1,7 @@
+UPDATE TABLE SET @x.modify (N'delete (/root/node/[@attribute = "value"]/child)');
+
+insert 
+
+delete
+
+replace value of

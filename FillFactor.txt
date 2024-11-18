@@ -1,0 +1,2 @@
+alter table tally
+add constraint PK_Tally primary key clustered (n) with fillfactor=100

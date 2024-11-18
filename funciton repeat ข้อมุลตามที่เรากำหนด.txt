@@ -1,0 +1,18 @@
+ALTER FUNCTION [dbo].[ufnLeadingZeros](
+    @Value int
+) 
+RETURNS varchar(8) 
+WITH SCHEMABINDING 
+AS 
+BEGIN
+    DECLARE @ReturnValue varchar(8);
+
+    SET @ReturnValue = CONVERT(varchar(8), @Value);
+
+-- REPLICATE = 0 คือข้อมูลที่ต้องการทำซ้ำ ,parameter ตัวที่ 2 คือครั้งในการทำซ้ำ
+-- DATALENGTH = function ในการหาความยาวของข้อมูล
+
+    SET @ReturnValue = REPLICATE('0', 8 - DATALENGTH(@ReturnValue)) + @ReturnValue;
+
+    RETURN (@ReturnValue);
+END;

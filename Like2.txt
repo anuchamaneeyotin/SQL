@@ -1,0 +1,2 @@
+                Dim data5 = From cust In nw.Customers _
+                  Where cust.City Like "*A*" Select cust

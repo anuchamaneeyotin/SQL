@@ -1,0 +1,9 @@
+USE AdventureWorks;
+GO
+SELECT FirstName, LastName
+FROM Person.Contact
+WHERE FirstName LIKE 'Al[^a]%'
+ORDER BY FirstName;
+
+
+ค้นหาคำที่มี AI นำหน้าและอักษรตัวที่ 3 ไม่ตรงกับ a
